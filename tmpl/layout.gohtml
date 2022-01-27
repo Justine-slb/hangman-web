@@ -1,0 +1,186 @@
+{{define "layout"}}
+    <!doctype html>
+    <html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>{{.PageTitle}}</title>
+        <link rel="stylesheet" type="text/css" href="/assets/style.css">
+    </head>
+
+    <body>
+    <section>
+        <div class="navbar">
+            <nav>
+                <li><a class="underline" href="/">Accueil</a></li>
+                <li><a class="underline" href="/#Rules">Règles</a></li>
+                <li><a class="underline" href="/#Level">Niveaux</a></li>
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn">Jouer</button>
+                    <div class="dropdown-content">
+                        <a href="/play"><i class="arrow">&#10148;</i> Facile</a>
+                        <a href="/play2"><i class="arrow">&#10148;</i> Normal</a>
+                        <a href="/play3"><i class="arrow">&#10148;</i> Difficile</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="banner">
+            <h1 id="text">The Hangman</h1>
+            <div class="clouds">
+                <img src="../assets/photos/cloud1.png" style="--i:1;" alt="">
+                <img src="../assets/photos/cloud2.png" style="--i:2;" alt="">
+                <img src="../assets/photos/cloud3.png" style="--i:3;" alt="">
+                <img src="../assets/photos/cloud4.png" style="--i:4;" alt="">
+                <img src="../assets/photos/cloud5.png" style="--i:5;" alt="">
+                <img src="../assets/photos/cloud1.png" style="--i:10;" alt="">
+                <img src="../assets/photos/cloud2.png" style="--i:9;" alt="">
+                <img src="../assets/photos/cloud3.png" style="--i:8;" alt="">
+                <img src="../assets/photos/cloud4.png" style="--i:7;" alt="">
+                <img src="../assets/photos/cloud5.png" style="--i:6;" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        let text = document.getElementById('text');
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            text.style.marginBottom = value * 2 + "px";
+        })
+    </script>
+    <section class="HangmanHowtoPlay">
+        <span class="carre"></span>
+        <balise id="/"><h2>Le Pendu</h2></balise>
+        <p>The Hangman ou le jeu du pendu est un jeu simple.<br><br>
+            Le joueur tente de découvrir un mot dont les lettres ont été cachées.
+            <br>
+            Les lettres sont remplacées par des underscores "_".
+            <br><br>
+            Selon le niveau choisi, les mots à découvrir seront plus ou moins compliqués
+            <br><br>
+            Le joueur propose une lettre ou un mot :<br>
+            > Si la lettre est présente dans le mot, la lettre est affichée<br>
+            > Si la lettre ne fait pas partie du mot, le premier trait du pendu se dessine
+            <br>
+            <br>
+            La partie continue jusqu'à ce que le joueur trouve le mot caché, ou que le corps entier apparaisse sur l'échafeau.
+            <br>
+            <br>
+            Bonne chance!</p>
+
+        <article id="Rules"></article>
+        <div class="quotes"><h3>"Hangman is great, <br>it teaches you that by saying the wrong things, <br>you could end someone's life."</h3></div><br><br><br>
+    </section>
+    <section class="tutorial">
+        <h2>Les Régles</h2>
+        <span></span>
+        <div class="tcontainer">
+            <span class="turnaround1"></span>
+            <div class="tcard">
+                <div class="imgbox">
+                    <img src="../assets/photos/user.png" alt="Image">
+                </div>
+                <div class="tcontent">
+                    <h4 class="title">Joueur</h4>
+                    <p>•Le jeux se joue à un joueur <br>rien ne vous empêche de le <br>faire avec un ami</p>
+                </div>
+            </div>
+            <span class="turnaround2" ></span>
+            <div class="tcard">
+                <div class="imgbox">
+                    <img src="../assets/photos/love-potion.png" alt="Image">
+                </div>
+                <div class="tcontent">
+                    <h4 class="title">Vie</h4>
+                    <p>•10 chances pour trouver<br> le mot  "un compteur" <br>vous rappelera combien <br>de vie il vous reste </p>
+                </div>
+            </div>
+            <span class="turnaround1"></span>
+            <div class="tcard">
+                <div class="imgbox">
+                    <img src="../assets/photos/gallery.png" alt="Image">
+                </div>
+                <div class="tcontent">
+                    <h4 class="title">Difficulté</h4>
+                    <p >•3 niveaux de difficulté <br>•Plus de 89 à trouver<br>•1 thème different de pendu<br> pour chaque niveau</p>
+                </div>
+            </div>
+            <span class="turnaround2"></span>
+            <div class="tcard">
+                <div class="imgbox">
+                    <img src="../assets/photos/back-in-time.png" alt="Image">
+                </div>
+                <div class="tcontent">
+                    <h4 class="title">Sauvegarde</h4>
+                    <p> •Quitter le jeu quand <br>vous le souhaitez <br>et reprennez votre partie <br>quand vous le souhaitez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="Solution1"><h3>"Faîtes un point après chaque essai
+            Dans ce jeu, inutile de se précipiter !<br> N'hésitez pas à faire un point sur le mot <br>que vous cherchez après chaque tentative."</h3></div>
+    <balise id="Level"></balise>
+    <section class="Levelofdifficulty">
+        <h2>Les Niveaux</h2>
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <div class="EASY">
+                        <h4>Niveau 1</h4>
+                        <p>•Difficulté: Facile<br>•Mot: 37<br><br>★</p>
+                        <a href="/play">Start</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <div class=NORMAL>
+                        <h4>Niveau 2</h4>
+                        <p>•Difficulté: Normal<br>•Mot: 28<br><br>★★</p>
+                        <a href="/play2">Start</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <div class="HARD">
+                        <h4>Niveau 3</h4>
+                        <p>•Difficulté: Difficile<br>•Mot: 24<br><br>★★★</p>
+                        <a href="/play3">Start</a>
+                    </div>
+                </div>
+            </div>
+            <span class="barredubas"></span>
+            <span class="barreduhaut"></span>
+            <span class="titre3"></span>
+        </div>
+    </section>
+    <div class="Solution2"><h3>"Comment commencer une partie ? <br>Lorsque vous êtes au stade de la première lettre à choisir,<br> le choix n'est pas évident.<br> Il y a toute fois une astuce qui peut vous permettre de bien choisir : <br>plus le mot est long, <br>plus il y a de chances qu'il ait une ou plusieurs voyelles. <br>Commencez donc par placer les lettres E ou A."</h3></div>
+    <section class="Aboutus">
+        <h2>Projet des Etudiants<br> B1 YNOV</h2>
+        <span class="titre4"></span>
+        <div class="Acontainer">
+            <div class="Acard">
+                <div class="imgbox">
+                    <img src="../assets/photos/Yann.png" alt="Image">
+                </div>
+                <p>Nguyen Yann</p>
+            </div>
+            <div class="Acard">
+                <div class="imgbox">
+                    <img src="../assets/photos/justine.png" alt="Image">
+                </div>
+                <p>Seguin le Boulanger<br> Justine.</p>
+            </div>
+            <div class="Acard">
+                <div class="imgbox">
+                    <img src="../assets/photos/vanessa.png" alt="Image">
+                </div>
+                <p>Tessier Vanessa</p>
+            </div>
+        </div>
+        <span class="AB2"></span>
+    </section>
+    </body>
+    </html>
+{{end}}

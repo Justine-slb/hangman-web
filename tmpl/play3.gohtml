@@ -1,0 +1,83 @@
+{{define "play3"}}
+    <!doctype html>
+    <html lang="fr"class="pplay">
+    <head>
+        <meta charset="utf-8">
+        <title>{{.PageTitle}}</title>
+        <link rel="stylesheet" type="text/css" href="/assets/style.css">
+    </head>
+
+    <body>
+    <section>
+        <div class="navbar">
+            <nav>
+                <li><a class="underline" href="/">Accueil</a></li>
+                <li><a class="underline" href="/#Rules">Règles</a></li>
+                <li><a class="underline" href="/#Level">Niveaux</a></li>
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn">Jouer</button>
+                    <div class="dropdown-content">
+                        <a href="/play"><i class="arrow">&#10148;</i> Facile</a>
+                        <a href="/play2"><i class="arrow">&#10148;</i> Normal</a>
+                        <a href="/play3"><i class="arrow">&#10148;</i> Difficile</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="bannerHangmanDN">
+            <div class="clouds">
+                <img src="/assets/photos/cloud1.png" style="--i:1;" alt="">
+                <img src="/assets/photos/cloud2.png" style="--i:2;" alt="">
+                <img src="/assets/photos/cloud3.png" style="--i:3;" alt="">
+                <img src="/assets/photos/cloud4.png" style="--i:4;" alt="">
+                <img src="/assets/photos/cloud5.png" style="--i:5;" alt="">
+                <img src="/assets/photos/cloud1.png" style="--i:10;" alt="">
+                <img src="/assets/photos/cloud2.png" style="--i:9;" alt="">
+                <img src="/assets/photos/cloud3.png" style="--i:8;" alt="">
+                <img src="/assets/photos/cloud4.png" style="--i:7;" alt="">
+                <img src="/assets/photos/cloud5.png" style="--i:6;" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <section style="background: linear-gradient(100deg,#6D969E,#375C66) "class="RandomWord">
+        <h2>{{.WordHole}} </h2>
+        <h3 class="level" style=" font-size:85px; color:#133557">Difficile</h3>
+        <span class="PlayTitre"></span>
+        <span class="PlayT"></span>
+        <span class="PlayMDifficile"></span>
+        <span class="PlayB"></span>
+    </section>
+    <section class="Game">
+        <div class="StickmanPicture">
+            <div class="picture">
+                <img src="/assets/photos/Hard{{.AttemptImage}}.png" alt="">
+            </div>
+        </div>
+        <div class="ListofChosen">
+            <h5 style="color:#133557">Lettres/Mots testés</h5>
+            <p>{{.Tried}}</p>
+            <h5 class=Attempt style="color:#133557">Il reste {{.Attempt}} coups</h5>
+            <a href="/play3">{{.Restart}}</a>
+        </div>
+    </section>
+    <section class="TypeText">
+        <form method="POST">
+            <label for="randomletter">
+                <a style="color:#133557" >{{.Advice}}</a>
+            </label>
+            <input type="text" class="randomletter2" name="Guess"placeholder="tapper ici" size="30"><br/>
+            <div class="SendLetterWord">
+                <br>
+                <button>Envoyer</button>
+            </div>
+        </form>
+    </section>
+    </body>
+    </html>
+{{end}}
